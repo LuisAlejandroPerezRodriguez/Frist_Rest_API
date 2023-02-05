@@ -1,0 +1,27 @@
+{
+  "name": "rest_api",
+  "version": "1.0.0",
+  "description": "Esta es mi primer Rest API (sencilla) con el fin de entender el Backend por completo. El objetivo de esta Rest API es que el cliente me va hacer varias peticiones usando los verbos HTTP, ya sean; POST,PUT,DELTE, etc. En la siguiente imagen se describe las peteciones que se realizaran.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisAlejandroPerezRodriguez/Frist_Rest_API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuisAlejandroPerezRodriguez/Frist_Rest_API/issues"
+  },
+  "homepage": "https://github.com/LuisAlejandroPerezRodriguez/Frist_Rest_API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

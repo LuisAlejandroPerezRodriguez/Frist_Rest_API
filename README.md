@@ -11,7 +11,9 @@ Basicamente tenemos una pagina en donde tenemos varios productos. Estos producto
 ## Useful Commands
 Como en el Json estan los modulos principales y secundarios que vamos a usar simplemente al momento de clonar el repositorio haremos uso del siguiente comando: 
 
-`npm i`
+```
+npm install
+```
 
 ---
 ## Referencia
