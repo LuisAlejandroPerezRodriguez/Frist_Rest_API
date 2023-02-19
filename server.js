@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const app = express();
-const products = [ //Para poder guardar los productos tengo que hacer uso de un archivo o una base de datos
+let products = [ //Para poder guardar los productos tengo que hacer uso de un archivo o una base de datos
     {
         id: 1,
         name: "Monitor",
@@ -24,13 +24,37 @@ app.post('/product', (req,res) => {
 
 })
 
-app.put('/product', (req,res) => {
-    res.send('actualizando productos')
+app.put('/product/:id', (req,res) => {
+
+    const newData = req.body // Nombre nuevo o precio nuevo
+    const productFound = products.find(function (product){
+        return product.id == req.params.id
+    })
+
+    if (!productFound)  return res.status(404).json({
+        message: " No se encuentra el producto"
+    });
+
+   products = products.map(p => p.id == parseInt(req.params.id) ? {...p, ...newData} : p)
+
+    res.json({
+        message: " Producto actualizado"
+    })
 
 })
 
-app.delete('/product', (req,res) => {
-    res.send('eliminando productos')
+app.delete('/product/:id', (req,res) => {
+    const productFound = products.find(function (product){
+        return product.id == req.params.id
+    })
+
+    if (!productFound)  return res.status(404).json({
+        message: " No se encuentra el producto"
+    });
+
+    products = products.filter(p=> p.id !== parseInt(req.params.id))
+    
+    res.sendStatus(204);
 
 })
 
@@ -41,7 +65,7 @@ app.get('/product/:id', (req,res) => {
 
     if (!productFound)  return res.status(404).json({
         message: " No se encuentra el producto"
-    })
+    });
 
     res.json(productFound)
 })
